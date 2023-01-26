@@ -1,0 +1,37 @@
+--To start the node on Machine A--
+erl -sname mohit@uf -setcookie dosp
+
+is_alive().  // to check whether the node is up or not
+
+node().  //to get list of nodes that machine is connected to
+
+net_adm:ping(<Name_Of_MachineB).  // to ping machine Name_Of_MachineB
+
+Pong is success. Pang is Failure.
+
+
+
+-- To change cookie --
+erlang:get_cookie().   // will return the cookie Name
+erlang:set_cookie(node(),'<New_Cookie_Name>').  // set cookie of current node()
+
+
+-- To call RPC from Machine A to Machine Name
+rpc:call('Name_Of_MachineB',<module_name>,<function_name>,[<arguments>]).
+
+
+-- to start a supervisor
+coin_supervisor:start_link().
+// then run client code : coin_client:coin().
+
+Links:
+
+https://stackoverflow.com/questions/41051522/how-to-connect-two-erlang-nodes
+
+
+https://www.ejabberd.im/interconnect-erl-nodes/index.html
+
+
+
+
+
